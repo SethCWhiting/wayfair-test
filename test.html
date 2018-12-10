@@ -1,0 +1,29 @@
+<script>
+  function draw_multiplication_table(a, b) {
+    var diff = b - a;
+    var arr = [];
+
+    // Set up initial row of values to be multiplied
+    var headerRow = [0];
+    for (var x = 0; x <= diff; x++) {
+      headerRow.push(a + x);
+    }
+    arr.push(headerRow);
+
+    for (var i = 0; i <= diff; i++) {
+      // Set up initial column of values to be multiplied
+      var sub = [i + a];
+
+      // Push actual multiplied numbers
+      for (var j = 0; j <= diff; j++) {
+        sub.push((a + i) * (a + j));
+        if (j == diff) {
+          arr.push(sub);
+        }
+      }
+    }
+    return arr;
+  }
+
+  console.table(draw_multiplication_table(1, 12));
+</script>
